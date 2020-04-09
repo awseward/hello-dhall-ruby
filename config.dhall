@@ -4,10 +4,9 @@ let PgConfig =
           , port : Natural
           , user : Text
           , password : Optional Text
-          , schema : Text
           , dbname : Text
           }
-      , default = { host = "localhost", port = 5432, schema = "public" }
+      , default = { host = "localhost", port = 5432 }
       }
 
 in  PgConfig::{ user = "andrew", password = None Text, dbname = "plants" }

@@ -13,12 +13,12 @@ query_file="${temp_dir}/query.sql"
 
 # setup db
 createdb "${db_name}" || ( dropdb "${db_name}" && createdb "${db_name}" )
-echo '-q' | xargs -t psql -d "${db_name}" -c "CREATE TABLE ${table_name} (name TEXT);"
+echo '-q' | xargs -t psql -d "${db_name}" -c "CREATE TABLE ${table_name} (name TEXT NOT NULL);"
 
 # load data
 echo "INSERT INTO ${table_name} (name) VALUES" > "${query_file}"
 
-curl -s -H "Authorization: Bearer ${TREFLE_API_TOKEN}" "https://trefle.io/api/genuses?page_size=10" \
+curl -s -H "Authorization: Bearer ${TREFLE_API_TOKEN}" "https://trefle.io/api/genuses?page_size=20000" \
   | jq -r '.[].slug' \
   > "${all_file}"
 

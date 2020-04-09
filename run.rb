@@ -4,7 +4,7 @@ require 'pg'
 require 'pry'
 
 def connect_db(config)
-  config = config.to_h.map { |k,v| [k, v.value] }.to_h.symbolize_keys.except :schema
+  config = config.to_h.map { |k,v| [k, v.value] }.to_h.symbolize_keys
   PG.connect(**config)
 end
 
