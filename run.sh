@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-tempfile="$(mktemp -t config.dhall)"
+tempfile="$(mktemp -t config-XXXX.dhall)"
 
 ( dhall resolve | dhall normalize > "${tempfile}" ) <<< ./config.dhall
 

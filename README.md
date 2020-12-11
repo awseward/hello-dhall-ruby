@@ -3,6 +3,5 @@
 ### Quickstart
 
 ```sh
- export TREFLE_API_TOKEN=<...>
-./run.sh
+./plants_up.sh && ./run.sh
 ```

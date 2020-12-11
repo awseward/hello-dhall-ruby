@@ -6,12 +6,12 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    base32 (0.3.2)
+    base32 (0.3.4)
     cbor (0.5.9.6)
     citrus (3.0.2)
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
-    dhall (0.5.0)
+    dhall (0.5.1)
       base32 (~> 0.3.2)
       cbor (~> 0.5.9.3)
       citrus (~> 3.0)
@@ -33,14 +33,14 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    value_semantics (3.2.0)
+    value_semantics (3.6.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activesupport
-  dhall
+  dhall (>= 0.5.1)
   pg
   pry
 

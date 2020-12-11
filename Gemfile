@@ -3,6 +3,6 @@
 source "https://rubygems.org"
 
 gem "activesupport"
-gem "dhall"
+gem "dhall", '>=0.5.1'
 gem "pg"
 gem "pry"

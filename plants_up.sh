@@ -4,7 +4,7 @@ set -euo pipefail
 
 db_name='plants'
 table_name='genuses'
-temp_dir="$(mktemp -d -t 'plants_db')"
+temp_dir="$(mktemp -d -t 'plants_db-XXXX')"
 
 all_file="${temp_dir}/all.txt"
 daeh_file="${temp_dir}/daeh.txt"
@@ -18,8 +18,8 @@ echo '-q' | xargs -t psql -d "${db_name}" -c "CREATE TABLE ${table_name} (name T
 # load data
 echo "INSERT INTO ${table_name} (name) VALUES" > "${query_file}"
 
-curl -s -H "Authorization: Bearer ${TREFLE_API_TOKEN}" "https://trefle.io/api/genuses?page_size=20000" \
-  | jq -r '.[].slug' \
+curl -s -H "Authorization: Bearer ${TREFLE_API_TOKEN}" "https://trefle.io/api/v1/genus" \
+  | jq -r '.data[].slug' \
   > "${all_file}"
 
 tail -n1 "${all_file}" > "${daeh_file}"
